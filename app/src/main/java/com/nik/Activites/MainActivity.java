@@ -1,7 +1,5 @@
 package com.nik.Activites;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,31 +9,23 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.ai.client.generativeai.GenerativeModel;
-import com.google.ai.client.generativeai.java.GenerativeModelFutures;
-import com.google.ai.client.generativeai.type.Content;
-import com.google.ai.client.generativeai.type.GenerateContentResponse;
-import com.google.common.util.concurrent.FutureCallback;
-import com.google.common.util.concurrent.Futures;
-import com.google.common.util.concurrent.ListenableFuture;
 import com.nik.R;
-import com.nik.Services.WidgetService;
 
-import org.tensorflow.lite.Tensor;
-
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     Button add;
     TextView tvRe;
+    EditText et;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -45,12 +35,16 @@ public class MainActivity extends AppCompatActivity {
 
         add=findViewById(R.id.btn_add);
         tvRe=findViewById(R.id.tv_result);
+        et=findViewById(R.id.et_input);
+
+
+        /*
 
         String apiKey="AIzaSyAahbytvDmUTmxfH7xnbdn68C5IpgZTRhY";
 
-        GenerativeModel gm = new GenerativeModel(/* modelName */ "gemini-pro",
+        GenerativeModel gm = new GenerativeModel("gemini-pro",
                 // Access your API key as a Build Configuration variable (see "Set up your API key" above)
-                /* apiKey */ apiKey);
+                apiKey);
         GenerativeModelFutures model = GenerativeModelFutures.from(gm);
 
         Content content = new Content.Builder()
@@ -76,12 +70,25 @@ public class MainActivity extends AppCompatActivity {
             }
         }, executor);
 
+         */
+        /*
+        try {
+            classifier = new Classifier(getAssets(), "mobilebert.tflite");
+            Log.d("MainActivity", "Classifier initialized successfully");
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e("MainActivity", "Error initializing classifier: " + e.getMessage());
+        }
+
+         */
 
         getPermission();
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //to add a  widget
+                /*
                 if (!Settings.canDrawOverlays(MainActivity.this))
                 {
                     getPermission();
@@ -89,19 +96,16 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, WidgetService.class);
                     startService(intent);
                 }
-            }
-        });
-    }
 
-    public void text(String result)
-    {
-        final String resultText = result;
-
-        // Update the TextView on the main (UI) thread
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                tvRe.setText(resultText);
+                 */
+                if(et.getText().toString().isEmpty())
+                {
+                    Toast.makeText(MainActivity.this, "Enter Text", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else {
+                    //here run the model
+                }
             }
         });
     }

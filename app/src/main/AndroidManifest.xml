@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +17,12 @@
         android:theme="@style/Theme.Nik"
         tools:targetApi="31">
         <activity
+            android:name=".Activites.TestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TestActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activites.SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -27,11 +33,11 @@
         </activity>
         <activity
             android:name=".Activites.MainActivity"
-            android:exported="true">
+            android:exported="true"></activity>
 
-        </activity>
-
-        <service android:name=".Services.WidgetService" android:enabled="true"/>
+        <service
+            android:name=".Services.WidgetService"
+            android:enabled="true" />
     </application>
 
 </manifest>
