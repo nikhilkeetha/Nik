@@ -11,11 +11,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieDrawable;
 import com.nik.R;
 
 import org.w3c.dom.Text;
@@ -29,7 +32,9 @@ public class WidgetService extends Service {
     View mFloatingView;
     WindowManager windowManager;
     ImageView imageViewClose;
-    TextView tvWidget;
+    RelativeLayout layoutWidget;
+
+    
     float height,width;
     @Nullable
     @Override
@@ -81,10 +86,16 @@ public class WidgetService extends Service {
         height=windowManager.getDefaultDisplay().getHeight();
         width=windowManager.getDefaultDisplay().getWidth();
 
-        tvWidget=(TextView) mFloatingView.findViewById(R.id.tv_widget);
+        LottieAnimationView animationView = mFloatingView.findViewById(R.id.Anim);
+        animationView.setScale(1.0f);
+        animationView.setAnimation(R.raw.nice);
+        animationView.setRepeatCount(LottieDrawable.INFINITE);
+        animationView.playAnimation();
+
+        layoutWidget=(RelativeLayout) mFloatingView.findViewById(R.id.layout_widget);
 
         //drag movement for widget
-        tvWidget.setOnTouchListener(new View.OnTouchListener() {
+        layoutWidget.setOnTouchListener(new View.OnTouchListener() {
             int initialX,initialY;
             float initialTouchX,initialTouchY;
             long startClickTime;

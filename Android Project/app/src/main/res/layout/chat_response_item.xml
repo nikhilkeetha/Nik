@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/messageTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="12.5dp"
+    android:maxWidth="240dp"
+    android:background="@drawable/chat_bubble"
+    android:textColor="#FFFFFF"
+    android:text="Text"
+    android:layout_marginTop="10dp"
+    android:textSize="16sp" />

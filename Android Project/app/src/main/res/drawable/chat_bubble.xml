@@ -3,10 +3,10 @@
     android:shape="rectangle">
 
     <!-- Set the solid color for the rectangle -->
-    <solid android:color="#FFFFFF" />
+    <solid android:color="#039BE5" />
 
     <!-- Set the corner radius for rounded corners (optional) -->
-    <corners android:radius="20dp" />
+    <corners android:radius="10dp" />
 
     <!-- Set the stroke (border) for the rectangle (optional) -->
 
